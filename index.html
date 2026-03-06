@@ -36,7 +36,7 @@
 </head>
 <body>
 
-<div class="fotorama"
+<div class="my-gallery"
      data-width="100%"
      data-height="100%"
      data-autoplay="3000"
@@ -198,6 +198,20 @@
   <img src="ef95be7c99c398555de9526d7c757e0d.png">
 
 </div>
+
+<script>
+  $(function () {
+    var $container = $('.my-gallery');
+    var $images = $container.children('img').get();
+
+    // Shuffle
+    $images.sort(function() { return 0.5 - Math.random(); });
+
+    // Re-insert and manually trigger fotorama
+    $container.empty().append($images).fotorama();
+  });
+</script>
+
 
 </body>
 </html>
